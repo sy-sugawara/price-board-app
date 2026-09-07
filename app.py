@@ -10,17 +10,25 @@ if st.button("128x192 PNG画像を生成"):
     img = Image.open("template.png").convert("RGB")
     draw = ImageDraw.Draw(img)
 
-    # 2. フォントの指定（128x192の画像に合わせてサイズを縮小）
+    # 2. フォントの指定
     try:
-        # ⚠️ GitHubにあるファイル名と大文字・小文字・拡張子まで完全に一致させる必要があります
         font_num = ImageFont.truetype("DINbek Black.ttf", 58)
     except Exception as e:
-        # 読み込めなかった場合に画面に赤文字でエラーを出すように変更
         st.error(f"フォント読み込みエラー: {e}")
         font_num = ImageFont.load_default()
 
-    # 3. 描画位置を画像の中に収める（X=10, Y=85 くらいに修正）
-    draw.text((1, 105), price_int, fill=(255, 255, 255), font=font_num)
+    # 3. 文字間隔を調整しながら1文字ずつ描画
+    start_x = 1          # 1文字目の描画開始X座標
+    y_pos = 105          # Y座標
+    letter_spacing = -4  # 文字間隔（マイナス値にすると字間が詰まります）
+
+    current_x = start_x
+    for char in price_int:
+        # 1文字を描画
+        draw.text((current_x, y_pos), char, fill=(255, 255, 255), font=font_num)
+        # 描画した文字の横幅を取得し、次の文字の位置を計算
+        char_width = draw.textlength(char, font=font_num)
+        current_x += char_width + letter_spacing
 
     # 4. 最終サイズ（念のため指定サイズにリサイズ）
     resized = img.resize((128, 192), Image.Resampling.LANCZOS)
