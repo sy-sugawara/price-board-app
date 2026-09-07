@@ -20,7 +20,7 @@ if st.button("128x192 PNG画像を生成"):
         font_num = ImageFont.load_default()
 
     # 3. 描画位置を画像の中に収める（X=10, Y=85 くらいに修正）
-    draw.text((5, 135), price_int, fill=(255, 255, 255), font=font_num)
+    draw.text((2, 105), price_int, fill=(255, 255, 255), font=font_num)
 
     # 4. 最終サイズ（念のため指定サイズにリサイズ）
     resized = img.resize((128, 192), Image.Resampling.LANCZOS)
