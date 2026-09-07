@@ -12,7 +12,7 @@ if st.button("128x192 PNG画像を生成"):
 
     # 2. フォントの指定
     try:
-        font_num = ImageFont.truetype("DINBEK-Bold.ttf", 68)
+        font_num = ImageFont.truetype("DINBEK-Bold.ttf", 65)
     except Exception as e:
         st.error(f"フォント読み込みエラー: {e}")
         font_num = ImageFont.load_default()
