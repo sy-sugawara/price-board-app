@@ -12,14 +12,14 @@ if st.button("128x192 PNG画像を生成"):
 
     # 2. フォントの指定
     try:
-        font_num = ImageFont.truetype("bahnschrift.ttf", 80)
+        font_num = ImageFont.truetype("bahnschrift.ttf", 76)
     except Exception as e:
         st.error(f"フォント読み込みエラー: {e}")
         font_num = ImageFont.load_default()
 
     # 3. 文字間隔を調整しながら1文字ずつ描画
     start_x = 1          # 1文字目の描画開始X座標
-    y_pos = 105          # Y座標
+    y_pos = 115          # Y座標
     letter_spacing = -8  # 文字間隔（マイナス値にすると字間が詰まります）
 
     current_x = start_x
