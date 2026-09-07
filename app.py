@@ -17,16 +17,23 @@ if st.button("128x192 PNG画像を生成"):
         st.error(f"フォント読み込みエラー: {e}")
         font_num = ImageFont.load_default()
 
-    # 3. 文字間隔を調整しながら1文字ずつ描画
-    start_x = 1          # 1文字目の描画開始X座標
-    y_pos = 115          # Y座標
-    letter_spacing = -6  # 文字間隔（マイナス値にすると字間が詰まります）
+    # 3. 指定領域の中央に文字を配置して描画
+    center_x = 45       # 数字を表示したい領域の中心X座標（要微調整）
+    y_pos = 115         # Y座標
+    letter_spacing = -4 # 字間
 
+    # 文字列全体の合計幅を計算
+    total_width = sum(draw.textlength(c, font=font_num) for c in price_int)
+    if len(price_int) > 1:
+        total_width += letter_spacing * (len(price_int) - 1)
+
+    # 中央揃えになる開始X座標を算出
+    start_x = center_x - (total_width / 2)
+
+    # 算出された位置から1文字ずつ描画
     current_x = start_x
     for char in price_int:
-        # 1文字を描画
         draw.text((current_x, y_pos), char, fill=(255, 255, 255), font=font_num)
-        # 描画した文字の横幅を取得し、次の文字の位置を計算
         char_width = draw.textlength(char, font=font_num)
         current_x += char_width + letter_spacing
 
