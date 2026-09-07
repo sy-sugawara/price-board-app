@@ -44,4 +44,4 @@ if st.button("128x192 PNG画像を生成"):
 
     st.image(resized, caption="生成プレビュー (128x192px)")
     with open(output_filename, "rb") as f:
-        st.download_button("PNG画像をダウンロード", f, file_name="price_board.png", mime="image/png")
+        st.download_button("PNG画像をダウンロード", f, file_name="値段看板(灯油).png", mime="image/png")
