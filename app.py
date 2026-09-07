@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 st.title("灯油価格看板変更用")
 
-price_int = st.text_input("灯油価格（整数部）", value="116")
+price_int = st.text_input("灯油価格（整数部）", value="120")
 
 if st.button("128x192 PNG画像を生成"):
     # 1. テンプレート画像を読み込む
