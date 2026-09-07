@@ -20,7 +20,7 @@ if st.button("128x192 PNG画像を生成"):
     # 3. 指定領域の中央に文字を配置して描画
     center_x = 48       # 数字を表示したい領域の中心X座標（要微調整）
     y_pos = 115         # Y座標
-    letter_spacing = -4 # 字間
+    letter_spacing = -5 # 字間
 
     # 文字列全体の合計幅を計算
     total_width = sum(draw.textlength(c, font=font_num) for c in price_int)
