@@ -13,7 +13,7 @@ if st.button("128x192 PNG画像を生成"):
     # 2. フォントの指定（128x192の画像に合わせてサイズを縮小）
     try:
         # ⚠️ GitHubにあるファイル名と大文字・小文字・拡張子まで完全に一致させる必要があります
-        font_num = ImageFont.truetype("DINbek Black.ttf", 65)
+        font_num = ImageFont.truetype("DINbek Black.ttf", 58)
     except Exception as e:
         # 読み込めなかった場合に画面に赤文字でエラーを出すように変更
         st.error(f"フォント読み込みエラー: {e}")
